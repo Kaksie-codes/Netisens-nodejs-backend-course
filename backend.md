@@ -106,7 +106,11 @@ Databases store and manage data for backend systems.
 How Node JS differs from vanilla JS
 
 1.) Node runs on a server --- not in a browser.
+
 2.) The console is the terminal window
+
 3.) The is a global object instead of the window object
+
 4.) It has common core modules
+
 5.) Common JS Modules instead of ES6 modules

@@ -25,7 +25,7 @@ const myEmitter = new events.EventEmitter();
 // Register an event listener for a custom event called 'customEvent'
 // --- The 'on' method is used to attach a listener to an event.
 // This listener is invoked whenever the event is emitted.
-myEmitter.on('customEvent', (msg) => {
+myEmitter.on('netisens', (msg) => {
     console.log(`Custom event: ${msg}`);
     // --- This callback function will log a message whenever 'customEvent' is emitted.
 });
@@ -49,16 +49,16 @@ myEmitter.on('userCreated', (id, name) => {
 // Emit the 'customEvent' with a message
 // --- The 'emit' method is used to trigger an event.
 // All listeners attached to this event will execute with the provided arguments.
-myEmitter.emit('customEvent', 'Hello, World!');
+myEmitter.emit('netisens', 'Hello, World!');
 // --- This will log "Custom event: Hello, World!"
 
 // Emit the 'userCreated' event with user details
 // --- Here, the 'userCreated' event is emitted with an ID and a name as arguments.
-myEmitter.emit('userCreated', 1276, 'John');
+// myEmitter.emit('userCreated', 1276, 'John');
 // --- Both listeners for the 'userCreated' event will execute in sequence.
 
 // Emit the 'userCreated' event again with the same data
 // --- Events can be emitted multiple times.
 // This will invoke the listeners for 'userCreated' again with the same arguments.
-myEmitter.emit('userCreated', 1276, 'John');
+// myEmitter.emit('userCreated', 1276, 'John');
 // --- This will result in the same output as before.
