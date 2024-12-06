@@ -30,6 +30,7 @@ myEmitter.on('netisens', (msg) => {
     // --- This callback function will log a message whenever 'customEvent' is emitted.
 });
 
+myEmitter.emit('userCreated', 1276, 'John');
 // Register an event listener for the 'userCreated' event
 // --- The 'userCreated' event is a custom event, and here we define how to handle it.
 // This listener accepts two parameters: 'id' and 'name'.
@@ -49,7 +50,7 @@ myEmitter.on('userCreated', (id, name) => {
 // Emit the 'customEvent' with a message
 // --- The 'emit' method is used to trigger an event.
 // All listeners attached to this event will execute with the provided arguments.
-myEmitter.emit('netisens', 'Hello, World!');
+// myEmitter.emit('netisens', 'Avocado');
 // --- This will log "Custom event: Hello, World!"
 
 // Emit the 'userCreated' event with user details
