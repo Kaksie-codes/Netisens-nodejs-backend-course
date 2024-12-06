@@ -4,4 +4,10 @@ const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b;
 
 
+const result = add(10, 4);
+const result2 = add(100, 400);
+console.log({result})
+console.log({result2})
+
+
 module.exports = {add, multiply, divide, subtract}
