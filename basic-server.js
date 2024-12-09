@@ -1,4 +1,6 @@
+const fs = require('fs');
 const http = require('http');
+const path = require('path');
 
 // Step 1: Import the 'http' module
 // --- The 'http' module is a built-in Node.js module that allows us to create an HTTP server.
@@ -17,10 +19,25 @@ const server = http.createServer((req, res) => {
     // --- This tells the client that the request was successful.
 
     res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Type', 'text/html');
     // --- Set a response header to indicate the type of content being returned.
     // --- 'Content-Type: text/plain' means the response is plain text.
 
-    res.end('Hello, World!');
+    // res.write("Angelic Boy");
+    // res.write("<h1>Angelic Boy</h1>");
+    fs.readFile(path.join(__dirname, 'views', 'index.html'), (err, data) => {
+        if (err) {
+            res.statusCode = 500;
+            res.end('Error reading file');
+        } else {
+            res.write(data);
+            res.end();
+            // res.end(data);
+        }
+    })
+    // res.end();
+
+    // res.end('Hello, World!');
 
     // res.setHeader('Content-Type', 'application/json');
     // res.end(JSON.stringify({ message: 'Hello, World!' }));
