@@ -6,13 +6,16 @@ const path = require('path');
 // --- The 'http' module is a built-in Node.js module that allows us to create an HTTP server.
 // --- This module enables handling requests and sending responses over the HTTP protocol.
 
+
+
 const server = http.createServer((req, res) => {
     // Step 2: Use 'http.createServer()' to create the server
     // --- The 'createServer()' method takes a callback function with two arguments:
     //     - 'req' (short for "request") contains details about the client's request.
     //     - 'res' (short for "response") is used to send a response back to the client.
-
-    console.log(req.url, req.method)
+    
+    console.log("method ===>>", req.method)
+    console.log("path ===>>", req.url)
 
     res.statusCode = 200;
     // --- Set the HTTP status code to 200, which means "OK" (successful request).
@@ -20,12 +23,15 @@ const server = http.createServer((req, res) => {
 
     res.setHeader('Content-Type', 'text/plain');
     res.setHeader('Content-Type', 'text/html');
+    // res.setHeader('Content-Type', 'application/json');
     // --- Set a response header to indicate the type of content being returned.
     // --- 'Content-Type: text/plain' means the response is plain text.
 
     // res.write("Angelic Boy");
     // res.write("<h1>Angelic Boy</h1>");
-    fs.readFile(path.join(__dirname, 'views', 'index.html'), (err, data) => {
+    let _path = path.join(__dirname, 'views', 'index.html')
+    console.log('file-path ==>', _path);
+    fs.readFile(_path, (err, data) => {
         if (err) {
             res.statusCode = 500;
             res.end('Error reading file');
