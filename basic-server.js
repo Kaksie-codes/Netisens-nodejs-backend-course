@@ -29,24 +29,24 @@ const server = http.createServer((req, res) => {
 
     // res.write("Angelic Boy");
     // res.write("<h1>Angelic Boy</h1>");
-    let _path = path.join(__dirname, 'views', 'index.html')
-    console.log('file-path ==>', _path);
-    fs.readFile(_path, (err, data) => {
-        if (err) {
-            res.statusCode = 500;
-            res.end('Error reading file');
-        } else {
-            res.write(data);
-            res.end();
-            // res.end(data);
-        }
-    })
+    // let _path = path.join(__dirname, 'views', 'index.html')
+    // console.log('file-path ==>', _path);
+    // fs.readFile(_path, (err, data) => {
+    //     if (err) {
+    //         res.statusCode = 500;
+    //         res.end('Error reading file');
+    //     } else {
+    //         res.write(data);
+    //         res.end();
+    //         // res.end(data);
+    //     }
+    // })
     // res.end();
 
     // res.end('Hello, World!');
 
-    // res.setHeader('Content-Type', 'application/json');
-    // res.end(JSON.stringify({ message: 'Hello, World!' }));
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ message: 'Hello, World!' }));
 
     // --- Send the response body and end the response process.
     // --- 'res.end()' must always be called to finalize the response.
