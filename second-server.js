@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
     // Parse the URL and extract the pathname
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
-    // console.log('parsed url', parsedUrl)
+    console.log('parsed url', parsedUrl)
 
 
      // Redirect "/my-products" to "/products"

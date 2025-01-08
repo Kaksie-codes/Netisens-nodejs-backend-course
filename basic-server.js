@@ -21,8 +21,8 @@ const server = http.createServer((req, res) => {
     // --- Set the HTTP status code to 200, which means "OK" (successful request).
     // --- This tells the client that the request was successful.
 
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Type', 'text/html');
+    // res.setHeader('Content-Type', 'text/plain');
+    // res.setHeader('Content-Type', 'text/html');
     // res.setHeader('Content-Type', 'application/json');
     // --- Set a response header to indicate the type of content being returned.
     // --- 'Content-Type: text/plain' means the response is plain text.

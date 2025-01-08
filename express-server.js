@@ -38,13 +38,19 @@ app.get('/products', (req, res) => {
     const route = 'products.html';
     console.log('route ===>>', '/products');
     console.log('method ===>>', req.method);
+    
     const filePath = path.join(__dirname, 'views', route);
+    
     res.sendFile(filePath, (err) => {
         if (err) {
+            console.error('Error reading file:', err);
             res.status(500).send('Error reading file');
+        } else {
+            console.log('File sent successfully:', filePath);
         }
     });
 });
+
 
 app.get('/products/:id', (req, res) => {
     // Extract the dynamic part of the URL (product identifier)
@@ -62,6 +68,7 @@ app.get('/products/:id', (req, res) => {
         }
     });
 });
+
 
 // Handle 404 error for unknown routes
 app.use((req, res) => {
