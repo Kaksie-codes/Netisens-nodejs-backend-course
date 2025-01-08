@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     const route = 'index.html';
     console.log('route ===>>', '/');
     console.log('method ===>>', req.method);
-    const filePath = path.join(__dirname, 'views', route);
+    const filePath = path.join(__dirname, 'view', route);
     res.sendFile(filePath, (err) => {
         if (err) {
             res.status(500).send('Error reading file');

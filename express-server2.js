@@ -16,7 +16,7 @@ const logger = (req, res, next) => {
 }
 
 //logger middleware
-app.use(logger);
+// app.use(logger);
 
 // setup static folder
 // app.use(express.static(path.join(__dirname, 'views')))
@@ -24,21 +24,35 @@ app.use(logger);
 let posts =  [
     {id: 1, title: 'First Post', body: 'This is the first post'},
     {id: 2, title: 'Second Post', body: 'This is the second post'},
-    {id: 3, title: 'Third Post', body: 'This is the third post'}
+    {id: 3, title: 'Third Post', body: 'This is the third post'},
+    {id: 4, title: 'Fourth Post', body: 'This is the Fourth post'},
+    {id: 5, title: 'Fifth Post', body: 'This is the Fifth post'},
+    {id: 6, title: 'Third Post', body: 'This is the third post'},
+    {id: 7, title: 'Third Post', body: 'This is the third post'},
+    {id: 8, title: 'Third Post', body: 'This is the third post'},
+    {id: 9, title: 'Third Post', body: 'This is the third post'},
+    {id: 10, title: 'Third Post', body: 'This is the third post'},
+    {id: 11, title: 'Third Post', body: 'This is the third post'},
+    {id: 12, title: 'Third Post', body: 'This is the third post'},
+    {id: 13, title: 'Third Post', body: 'This is the third post'},
+    {id: 14, title: 'Third Post', body: 'This is the third post'},
 ]
+//  svsvdfvdfbvfbf
 
-
-// Get Single Post
-app.get('/api/posts', logger, (req, res) => {
+//Get All Posts
+app.get('/api/posts', (req, res) => {
     console.log(req.query)
     console.log(req.params)
     let limit = parseInt(req.query.limit);
 
-    if(isNaN(limit) || limit < 1 || !limit) limit = 10;
+    if(isNaN(limit) || limit < 1 || !limit){
+        limit = 10;
+    } 
     res.json(posts.slice(0, limit));
 })
 
-//Get All Posts
+
+// Get Single Post
 app.get('/api/posts/:id', (req, res) => {    
     const post = posts.filter(post => post.id === parseInt(req.params.id));
     if(post.length < 1) return res.status(404).json({msg: 'Post not found'});
