@@ -82,11 +82,13 @@ app.delete('/api/products/:id', async (req, res) => {
 
 const PORT = 3000;
 
-mongoose.connect('mongodb+srv://netisens:netisens123@netisensdb.ntt9s.mongodb.net/Netisens-API?retryWrites=true&w=majority&appName=NetisensDB')
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+mongoose.connect('mongodb+srv://netisens:netisens123@netisensdb.ntt9s.mongodb.net/?retryWrites=true&w=majority&appName=NetisensDB')
     .then(() => {
         console.log('Connected to Database!');
-        app.listen(PORT, () => {
-            console.log(`Server is running on http://localhost:${PORT}`);
-        });
+        
     })
     .catch(error => console.error('Error connecting to Database:', error));
