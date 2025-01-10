@@ -44,6 +44,21 @@ app.delete('/api/products/:id', async (req, res) => {
     }
 });
 
+
+// Get a single product by ID
+app.get('/api/products/:id', async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        res.status(200).json(product);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // Update a product by ID (simplified approach)
 app.put('/api/products/:id', async (req, res) => {
     try {
@@ -60,7 +75,7 @@ app.put('/api/products/:id', async (req, res) => {
         // Save the updated product
         await product.save();
 
-        res.status(200).json(product);
+        res.status(200).json({msg: 'product updated successfully',product});
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: error.message });
